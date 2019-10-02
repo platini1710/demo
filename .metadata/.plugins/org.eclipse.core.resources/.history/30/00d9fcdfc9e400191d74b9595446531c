@@ -1,0 +1,10 @@
+package com.tienda.retail.service;
+
+import com.tienda.retail.model.Productos;
+
+public interface RegistraUsuariosServiceInter {
+	  public void save(Productos producto) ;
+	  public void update(Productos producto) ;
+		public void delete(Productos producto);
+
+}

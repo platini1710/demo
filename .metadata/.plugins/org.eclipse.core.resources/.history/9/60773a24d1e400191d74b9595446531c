@@ -1,0 +1,66 @@
+package com.tienda.retail.controllers;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tienda.retail.exception.ResourceNotFoundException;
+import com.tienda.retail.helper.Respuesta;
+import com.tienda.retail.model.Productos;
+import com.tienda.retail.service.ConsultaProductosService;
+import com.tienda.retail.service.ConsultaProductosServiceImplement;
+
+@RequestMapping("/consulta")
+@RestController
+public class ProductRetrieveController {
+	  @Autowired
+	  private ConsultaProductosService consultaProductosService;
+	   
+	private static final Logger logger = LoggerFactory.getLogger(ProductRetrieveController.class);
+	   
+	  
+	  
+  @RequestMapping(method = RequestMethod.GET, value="/allProductos")
+  @ResponseBody
+  public List<Productos> getAllProductos() {
+	  System.out.println("ssssdd");
+		 return  consultaProductosService.allProductos();
+  }
+  
+  /**
+   * Gets users by id.
+   *
+   * @param userId the user id
+   * @return the users by id
+   * @throws ResourceNotFoundException the resource not found exception
+   */
+  @GetMapping("/producto/{id}")
+  public ResponseEntity<Respuesta> getUsersById(@PathVariable(value = "id") Long id)
+      throws ResourceNotFoundException {
+	  Productos producto=null;
+	  Respuesta response=new Respuesta();
+
+
+			 producto=consultaProductosService.findProducto(id);
+			 response.setProducto(producto);
+			 if ( producto!=null) {
+		
+				 response.setMsg("Exitoso");;
+			 } else 
+				 
+				 response.setMsg("producto no encontrado");;
+		
+
+	      return ResponseEntity.ok().body(response);
+  }
+}

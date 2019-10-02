@@ -1,0 +1,22 @@
+package com.tienda.retail.helper;
+
+import com.tienda.retail.model.Productos;
+
+public class Respuesta {
+private Productos  producto;
+private String msg;
+public Productos getProducto() {
+	return producto;
+}
+public void setProducto(Productos producto) {
+	this.producto = producto;
+}
+public String getMsg() {
+	return msg;
+}
+public void setMsg(String msg) {
+	this.msg = msg;
+}
+
+
+}

@@ -1,0 +1,5 @@
+package com.tienda.retail.model;
+
+public class Producto {
+
+}

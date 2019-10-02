@@ -1,0 +1,23 @@
+package com.bhaiti.kela.server.main;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import com.bhaiti.kela.controllers.StudentRegistrationController;
+import com.tienda.retail.model.ProductoDetalle;
+
+
+
+@SpringBootApplication(scanBasePackages = {"com.bhaiti.kela"})
+@EntityScan("com.bhaiti.kela.model")
+@EnableJpaRepositories("com.bhaiti.kela.repository")
+public class SpringBootRest2Application  {
+
+	public static void main(String[] args) {
+		   SpringApplication.run(SpringBootRest2Application.class, args);
+	}
+
+}

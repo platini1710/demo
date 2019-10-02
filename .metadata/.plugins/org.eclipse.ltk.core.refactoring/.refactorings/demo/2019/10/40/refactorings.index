@@ -1,0 +1,22 @@
+1569979955181	Rename package 'com.bhaiti.kela.model'
+1569980456212	Rename type 'User'
+1569981325148	Rename package 'com.bhaiti.kela.controllers'
+1569981353102	Rename type 'StudentRegistrationController'
+1569981373110	Rename type 'StudentRetrieveController'
+1569981439460	Rename type 'ProductoDetalle'
+1569981451784	Rename type 'ProductoDetalleId'
+1569983888203	Rename package 'com.bhaiti.kela.beans'
+1569983908215	Rename package 'com.bhaiti.kela.repository'
+1569983922798	Rename package 'com.staxrt.tutorial.exception'
+1569983944387	Rename package 'com.bhaiti.kela.service'
+1569983968342	Rename package 'com.bhaiti.kela.server.main'
+1569984279580	Rename package 'com.bhaiti.kela.server.main'
+1569985151173	Delete element
+1569992956566	Delete element
+1569992964883	Delete element
+1569994434052	Rename resource 'template'
+1569995622596	Move 'js' to 'public'
+1569996024478	Delete element
+1569998162120	Delete element
+1569998179787	Delete element
+1570006991184	Move package

@@ -1,0 +1,12 @@
+package com.bhaiti.kela.service;
+
+import java.util.List;
+
+import com.tienda.retail.model.ProductoDetalle;
+
+public interface RegistraUsuariosServiceInter {
+	  public void save(ProductoDetalle user) ;
+	  public ProductoDetalle findUser(Long id ) ;
+		public void delete(ProductoDetalle user);
+		public List<ProductoDetalle> allUsers();
+}

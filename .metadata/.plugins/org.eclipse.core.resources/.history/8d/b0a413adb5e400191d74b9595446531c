@@ -1,0 +1,91 @@
+package com.tienda.retail.model;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+import java.util.Date;
+
+/**
+ * The type User.
+ *
+ * @author Givantha Kalansuriya
+ */
+@Entity
+@Table(name = "producto")
+@EntityListeners(AuditingEntityListener.class)
+public class User {
+
+    @Id
+    private long id;
+
+    @Column(name = "talla", nullable = false)
+    private String talla;
+
+    @Column(name = "color", nullable = false)
+    private String color;
+    
+    @Column(name = "codigoproductodetalle", nullable = false)
+    private String codigoProductoDetalle;
+
+    @Column(name = "precio", nullable = false)
+    private Long precio;
+
+    @Column(name = "stock")
+    private Long stock;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTalla() {
+		return talla;
+	}
+
+	public void setTalla(String talla) {
+		this.talla = talla;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getCodigoProductoDetalle() {
+		return codigoProductoDetalle;
+	}
+
+	public void setCodigoProductoDetalle(String codigoProductoDetalle) {
+		this.codigoProductoDetalle = codigoProductoDetalle;
+	}
+
+	public Long getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Long precio) {
+		this.precio = precio;
+	}
+
+	public Long getStock() {
+		return stock;
+	}
+
+	public void setStock(Long stock) {
+		this.stock = stock;
+	}
+
+}

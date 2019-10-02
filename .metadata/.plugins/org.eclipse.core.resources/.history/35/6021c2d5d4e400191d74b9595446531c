@@ -1,0 +1,5 @@
+package com.tienda.retail.controllers;
+
+public class ProductDetailRetrieveController {
+
+}

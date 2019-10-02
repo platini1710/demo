@@ -1,0 +1,7 @@
+package com.tienda.retail.service;
+
+import com.tienda.retail.model.Productos;
+
+public interface ConsultaProductoDetalleService {
+	  public void allDetalle(Long id) ;
+}

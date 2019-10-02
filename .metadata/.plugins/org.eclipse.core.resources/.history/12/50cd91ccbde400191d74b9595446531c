@@ -1,0 +1,9 @@
+package com.bhaiti.kela.service;
+
+import java.util.List;
+
+import com.tienda.retail.model.Productos;
+
+public interface ConsultaProductosService {
+	public List<Productos> allProductos();
+}

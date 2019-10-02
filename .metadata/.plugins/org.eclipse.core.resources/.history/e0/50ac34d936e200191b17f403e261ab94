@@ -1,0 +1,5 @@
+package com.bhaiti.kela.beans;
+
+public class StudentRegistration {
+
+}

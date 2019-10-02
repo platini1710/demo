@@ -1,0 +1,5 @@
+package com.tienda.retail.exception;
+
+public class ResourceFoundException {
+
+}

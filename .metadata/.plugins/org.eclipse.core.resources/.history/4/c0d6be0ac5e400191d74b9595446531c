@@ -1,0 +1,11 @@
+package com.tienda.retail.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.tienda.retail.model.Productos;
+@Component
+public interface ConsultaProductosService {
+	public List<Productos> allProductos();
+}

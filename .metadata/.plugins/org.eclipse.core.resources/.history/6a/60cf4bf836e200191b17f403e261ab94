@@ -1,0 +1,8 @@
+package com.bhaiti.kela.beans;
+
+public class Student {
+	String name;
+    int age;
+    String registrationNumber;
+    
+}

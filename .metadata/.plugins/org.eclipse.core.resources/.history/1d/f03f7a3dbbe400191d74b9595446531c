@@ -1,0 +1,51 @@
+package com.bhaiti.kela.service;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bhaiti.kela.repository.UserRepository;
+import com.tienda.retail.model.ProductosDetalle;
+
+@Service 
+
+public class RegistraUsuariosService implements RegistraUsuariosServiceInter{
+	  @Autowired
+	  private UserRepository userRepository;
+	  @PersistenceContext(name="cpJpaPu")
+	  EntityManager entityManager; 
+	  
+
+	  @Override
+	    @Transactional
+	  public void save(ProductosDetalle user) {
+		     entityManager.persist(user);
+		  }
+	  public List<ProductosDetalle> getTodos() {
+	    return userRepository.findAll();
+	  }
+	    @Transactional
+	@Override
+	public ProductosDetalle findUser(Long id) {
+		// TODO Auto-generated method stub
+	    	return  entityManager.find(ProductosDetalle.class,id);
+	}
+	    @Transactional
+		@Override
+		public void delete(ProductosDetalle user) {
+			// TODO Auto-generated method stub
+	    	  entityManager.remove(user);
+		}
+		@Override
+		public List<ProductosDetalle> allUsers() {
+			// TODO Auto-generated method stub
+	    	List<ProductosDetalle>  listUsers=entityManager.createQuery(
+	                "SELECT p FROM User p").getResultList();
+	    	return listUsers;
+		}
+}

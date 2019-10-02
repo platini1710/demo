@@ -1,0 +1,5 @@
+package com.arquitecturajava.jpa.models;
+
+public class Customer {
+
+}

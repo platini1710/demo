@@ -1,0 +1,5 @@
+package com.bhaiti.kela.controllers;
+
+public class StudentRegistrationController {
+
+}

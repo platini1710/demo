@@ -1,0 +1,93 @@
+package com.tienda.retail.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tienda.retail.exception.ResourceFoundException;
+import com.tienda.retail.exception.ResourceNotFoundException;
+import com.tienda.retail.helper.Constantes;
+import com.tienda.retail.helper.Respuesta;
+import com.tienda.retail.model.Productos;
+import com.tienda.retail.service.ConsultaProductosService;
+import com.tienda.retail.service.RegistraProductosServices;
+
+@RestController
+@RequestMapping("/registro/producto")
+
+public class ProductRegistrationController {
+	@Autowired
+	private RegistraProductosServices registraProductosServices;
+	@Autowired
+	private ConsultaProductosService consultaProductosService;
+
+	/**
+	 * Update user response entity.
+	 *
+	 * @param userId      the user id
+	 * @param userDetails the user details
+	 * @return the response entity
+	 * @throws ResourceNotFoundException the resource not found exception
+	 */
+	@PutMapping("/update")
+	public Respuesta updateProducto(@Valid @RequestBody Productos producto) {
+
+		Productos prod = consultaProductosService.findProducto(producto.getId());
+		Respuesta response = new Respuesta();
+		System.out.println("In User" + prod);
+
+		try {
+			if (prod == null) {
+				throw new ResourceNotFoundException(Constantes.msgNotFound);
+			}
+
+			prod.setCodigoProducto(producto.getCodigoProducto());
+			prod.setNombre(producto.getNombre());
+			prod.setDescripcion(producto.getDescripcion());
+
+			registraProductosServices.update(prod);
+			response.setProducto(prod);
+			response.setMsg(Constantes.update);
+		} catch (ResourceNotFoundException e) {
+			response.setMsg(Constantes.msgNotFound);
+		} catch (Exception e) {
+			response.setMsg(e.getMessage());
+		}
+		return response;
+	}
+
+	/**
+	 * Update user response entity.
+	 *
+	 * @param producto the user id
+	 * @return the response entity
+	 * @throws ResourceNotFoundException the resource not found exception
+	 */
+	@PostMapping("/save")
+	public Respuesta saveProducto(@Valid @RequestBody Productos producto) {
+
+		Productos prod = consultaProductosService.findProducto(producto.getId());
+		Respuesta response = new Respuesta();
+		System.out.println("In User" + prod);
+
+		try {
+			if (prod != null) {
+				throw new ResourceFoundException(Constantes.msgFound);
+			}
+			registraProductosServices.update(prod);
+			response.setProducto(prod);
+			response.setMsg(Constantes.insert);
+		} catch (ResourceFoundException e) {
+			response.setMsg(Constantes.msgFound);
+		} catch (Exception e) {
+			response.setMsg(e.getMessage());
+		}
+		return response;
+	}
+
+}

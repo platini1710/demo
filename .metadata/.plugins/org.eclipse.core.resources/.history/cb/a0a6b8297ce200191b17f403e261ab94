@@ -1,0 +1,22 @@
+package com.bhaiti.kela.server.main;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+import com.bhaiti.kela.controllers.StudentRegistrationController;
+import com.staxrt.tutorial.model.User;
+import com.staxrt.tutorial.repository.UserRepository;
+
+
+@SpringBootApplication
+(scanBasePackages={"com.staxrt.tutorial.repository",
+"com.bhaiti.kela", "com.staxrt.tutorial"})
+
+public class SpringBootRest2Application  {
+
+	public static void main(String[] args) {
+		   SpringApplication.run(SpringBootRest2Application.class, args);
+	}
+
+}

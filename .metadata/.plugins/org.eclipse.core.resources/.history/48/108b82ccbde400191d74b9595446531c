@@ -1,0 +1,23 @@
+package com.bhaiti.kela.service;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.tienda.retail.model.Productos;
+import com.tienda.retail.model.ProductosDetalle;
+
+public class ConsultaProductosServiceImplement implements ConsultaProductosService {
+	  @PersistenceContext(name="cpJpaPu")
+	  EntityManager entityManager; 
+	  
+	  
+		@Override
+		public List<Productos> allProductos() {
+			// TODO Auto-generated method stub
+	    	List<Productos>  listProductos=entityManager.createQuery(
+	                "SELECT p FROM productos p").getResultList();
+	    	return listProductos;
+		}  
+}

@@ -1,0 +1,11 @@
+
+$(document).ready(function() {
+    const id = $("#codProducto").val();
+    $.ajax({
+        url: "http://localhost:8083/detalleProducto/detalle?id=${id}"
+    }).then(function(data) {
+    	alert("hola" +data.producto.id)
+       $('.greeting-id').append(data.producto.id);
+       $('.codigoProducto').append(data.producto.codigoProducto);
+    });
+});

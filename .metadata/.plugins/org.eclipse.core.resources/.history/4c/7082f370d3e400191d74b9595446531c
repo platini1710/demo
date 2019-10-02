@@ -1,0 +1,18 @@
+package com.tienda.retail.service;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class ConsultaProductoDetalleServiceImpl implements ConsultaProductoDetalleService{
+	@PersistenceContext
+	EntityManager entityManager; 
+	@Override
+	public void allDetalle(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

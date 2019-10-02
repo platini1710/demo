@@ -1,0 +1,12 @@
+package com.bhaiti.kela.service;
+
+import java.util.List;
+
+import com.bhaiti.kela.model.User;
+
+public interface RegistraUsuariosServiceInter {
+	  public void save(User user) ;
+	  public User findUser(Long id ) ;
+		public void delete(User user);
+		public List<User> allUsers();
+}

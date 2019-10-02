@@ -1,0 +1,113 @@
+package com.tienda.retail.model;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+import java.util.Date;
+
+/**
+ * The type User.
+ *
+ * @author Givantha Kalansuriya
+ */
+@Entity
+@Table(name = "productosdetalle")
+public class ProductosDetalle {
+
+
+    @EmbeddedId
+    private ProductosDetalleId id;
+    
+    @Column(name = "codigoproductodetalle", nullable = false)
+    private String codigoProductoDetalle;
+
+    @Column(name = "precio", nullable = false)
+    private Long precio;
+
+    @Column(name = "stock")
+    private Long stock;
+
+	public ProductosDetalleId getId() {
+		return id;
+	}
+
+	public void setId(ProductosDetalleId id) {
+		this.id = id;
+	}
+
+	public String getCodigoProductoDetalle() {
+		return codigoProductoDetalle;
+	}
+
+	public void setCodigoProductoDetalle(String codigoProductoDetalle) {
+		this.codigoProductoDetalle = codigoProductoDetalle;
+	}
+
+	public Long getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Long precio) {
+		this.precio = precio;
+	}
+
+	public Long getStock() {
+		return stock;
+	}
+
+	public void setStock(Long stock) {
+		this.stock = stock;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigoProductoDetalle == null) ? 0 : codigoProductoDetalle.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((precio == null) ? 0 : precio.hashCode());
+		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProductosDetalle other = (ProductosDetalle) obj;
+		if (codigoProductoDetalle == null) {
+			if (other.codigoProductoDetalle != null)
+				return false;
+		} else if (!codigoProductoDetalle.equals(other.codigoProductoDetalle))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (precio == null) {
+			if (other.precio != null)
+				return false;
+		} else if (!precio.equals(other.precio))
+			return false;
+		if (stock == null) {
+			if (other.stock != null)
+				return false;
+		} else if (!stock.equals(other.stock))
+			return false;
+		return true;
+	}
+
+
+}

@@ -1,0 +1,55 @@
+package com.tienda.retail.model;
+
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Table;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "Productos")
+
+public class Productos {
+
+    private Long id;
+    
+    @Column(name = "codigoproducto", nullable = false)
+    private String codigoProducto;
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
+    @Column(name = "descripcion", nullable = false)
+    private String descripcion;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getCodigoProducto() {
+		return codigoProducto;
+	}
+	public void setCodigoProducto(String codigoProducto) {
+		this.codigoProducto = codigoProducto;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	@Override
+	public String toString() {
+		return "Productos [id=" + id + ", codigoProducto=" + codigoProducto + ", nombre=" + nombre + ", descripcion="
+				+ descripcion + "]";
+	}
+
+    
+}

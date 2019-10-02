@@ -1,0 +1,5 @@
+package com.staxrt.tutorial.repository;
+
+public interface UserRepository {
+
+}

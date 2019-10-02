@@ -1,0 +1,23 @@
+package com.tienda.retail.service;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.tienda.retail.model.Productos;
+import com.tienda.retail.model.ProductosDetalle;
+
+public class ConsultaProductosServiceImplement implements ConsultaProductosService {
+	  @PersistenceContext
+	  EntityManager entityManager;
+
+	@Override
+	public List<Productos> allProductos() {
+		// TODO Auto-generated method stub
+		return null;
+	} 
+	  
+	  
+
+}

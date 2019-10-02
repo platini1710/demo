@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/hello.js"></script>
+              <script> 
+          
+            // jQuery code to show the working of this method 
+            $(document).ready(function() { 
+                $("form").submit(function() { 
+          
+                    const id = $("#codProducto").val();
+                    alert("id::" + id); 
+                    $.ajax({
+                        url: "http://localhost:8083/detalleProducto/detalle?id=${id}"
+                    }).then(function(data) {
+                    	alert("hola" +data.producto.id)
+                       $('.greeting-id').append(data.producto.id);
+                       $('.codigoProducto').append(data.producto.codigoProducto);
+                    });
+                }); 
+            }); 
+        </script> 
+    </head>
+
+    <body>
+        <div>
+            <p class="greeting-id">The ID is </p>
+            <p class="codigoProducto">The content is </p>
+        </div>
+        
+       <form action = "">  
+        <table>
+        <tr>
+        <td>consultar producto </td><td>        <input type="text" id="codProducto" name="name" required
+       minlength="1" maxlength="8" size="10"></td>
+        </tr>
+        <tr>
+        <td colspan="2"><input type="submit">
+        </table>
+</form>
+    </body>
+</html>

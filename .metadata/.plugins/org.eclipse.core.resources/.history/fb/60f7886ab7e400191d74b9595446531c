@@ -1,0 +1,21 @@
+package com.tienda.retail.model;
+
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "productos")
+public class Productos {
+
+    private Long id;
+    
+    @Column(name = "codigoproducto", nullable = false)
+    private String codigoProducto;
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
+    @Column(name = "descripcion", nullable = false)
+    private String descripcion;
+    
+}

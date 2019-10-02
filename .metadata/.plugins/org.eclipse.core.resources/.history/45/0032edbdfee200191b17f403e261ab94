@@ -1,0 +1,17 @@
+package com.staxrt.tutorial.repository;
+
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.bhaiti.kela.model.User;
+
+/**
+ * The interface User repository.
+ *
+ * @author Givantha Kalansuriya
+ */
+@Repository
+
+public interface UserRepository extends JpaRepository<User, Long> {}

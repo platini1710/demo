@@ -1,0 +1,45 @@
+package com.test;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.*;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.client.HttpClientErrorException;
+
+import com.tienda.retail.model.Productos;
+import com.tienda.retail.server.main.SpringBootRest2Application;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = SpringBootRest2Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class ApplicationTests {
+
+	@Autowired
+	private TestRestTemplate restTemplate;
+
+	@LocalServerPort
+	private int port;
+
+	private String getRootUrl() {
+		return "http://localhost:" + port;
+	}
+
+
+	@Test
+	public void testCreateProducto() {
+		System.out.println("ssdsd");
+		Productos productos = new Productos();
+		productos.setId(new Long("1"));
+		productos.setCodigoProducto("1");
+		productos.setNombre("qqqq");
+		ResponseEntity<Productos> postResponse = restTemplate.postForEntity(getRootUrl() + "/registro/producto/save", productos, Productos.class);
+		Assert.assertNotNull(postResponse);
+		Assert.assertNotNull(postResponse.getBody());
+	}
+
+}

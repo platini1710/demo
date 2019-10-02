@@ -1,0 +1,143 @@
+package com.tienda.retail.model;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+import java.util.Date;
+
+/**
+ * The type User.
+ *
+ * @author Givantha Kalansuriya
+ */
+@Entity
+@Table(name = "producto")
+@EntityListeners(AuditingEntityListener.class)
+public class User {
+
+    @Id
+    private long id;
+
+    @Column(name = "talla", nullable = false)
+    private String talla;
+
+    @Column(name = "color", nullable = false)
+    private String color;
+    
+    @Column(name = "codigoproductodetalle", nullable = false)
+    private String codigoProductoDetalle;
+
+    @Column(name = "precio", nullable = false)
+    private Long precio;
+
+    @Column(name = "stock")
+    private Long stock;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTalla() {
+		return talla;
+	}
+
+	public void setTalla(String talla) {
+		this.talla = talla;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getCodigoProductoDetalle() {
+		return codigoProductoDetalle;
+	}
+
+	public void setCodigoProductoDetalle(String codigoProductoDetalle) {
+		this.codigoProductoDetalle = codigoProductoDetalle;
+	}
+
+	public Long getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Long precio) {
+		this.precio = precio;
+	}
+
+	public Long getStock() {
+		return stock;
+	}
+
+	public void setStock(Long stock) {
+		this.stock = stock;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigoProductoDetalle == null) ? 0 : codigoProductoDetalle.hashCode());
+		result = prime * result + ((color == null) ? 0 : color.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((precio == null) ? 0 : precio.hashCode());
+		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
+		result = prime * result + ((talla == null) ? 0 : talla.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProductoDetalle other = (ProductoDetalle) obj;
+		if (codigoProductoDetalle == null) {
+			if (other.codigoProductoDetalle != null)
+				return false;
+		} else if (!codigoProductoDetalle.equals(other.codigoProductoDetalle))
+			return false;
+		if (color == null) {
+			if (other.color != null)
+				return false;
+		} else if (!color.equals(other.color))
+			return false;
+		if (id != other.id)
+			return false;
+		if (precio == null) {
+			if (other.precio != null)
+				return false;
+		} else if (!precio.equals(other.precio))
+			return false;
+		if (stock == null) {
+			if (other.stock != null)
+				return false;
+		} else if (!stock.equals(other.stock))
+			return false;
+		if (talla == null) {
+			if (other.talla != null)
+				return false;
+		} else if (!talla.equals(other.talla))
+			return false;
+		return true;
+	}
+
+}

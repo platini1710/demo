@@ -1,0 +1,16 @@
+package com.tienda.retail.repository;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.tienda.retail.model.Productos;
+
+
+/**
+ * The interface User repository.
+ *
+ * @author Givantha Kalansuriya
+ */
+@Repository
+public interface ProductosRepository extends JpaRepository<Productos, Long> {}

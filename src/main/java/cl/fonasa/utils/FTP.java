@@ -10,8 +10,11 @@ import org.springframework.stereotype.Component;
 
 import javax.tools.FileObject;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Vector;
 
 @Component
@@ -137,7 +140,9 @@ public class FTP {
   }
 
   public InputStream downloadFile(String path, String file) throws SftpException {
-    connect();
+	   
+	    FTP f =new  FTP(this.host, this.port, this.user, this.password);
+	    ChannelSftp channelSftp = f.getChannelSftp();
     // try{
     try {
       channelSftp.cd("/fonresuelve/" + path);
@@ -249,5 +254,10 @@ public class FTP {
       }
     }
   }
+  
+  
+  
+  
+
 
 }
